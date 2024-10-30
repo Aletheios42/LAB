@@ -1,0 +1,10 @@
+# Usa una imagen base con GCC
+FROM gcc:latest
+
+# Copia el archivo del cliente a la imagen y compílalo
+COPY client.c /client.c
+RUN gcc /client.c -o client
+
+# Ejecuta el cliente
+CMD ["/client"]
+

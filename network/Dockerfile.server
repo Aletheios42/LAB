@@ -1,0 +1,13 @@
+# Usa una imagen base con GCC
+FROM gcc:latest
+
+# Copia el archivo del servidor a la imagen y compílalo
+COPY server.c /server.c
+RUN gcc /server.c -o server
+
+# Define el puerto que el servidor usará
+EXPOSE 8080
+
+# Ejecuta el servidor
+CMD ["/server"]
+
