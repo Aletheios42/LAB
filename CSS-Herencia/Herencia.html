@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Combinadores en CSS</title>
+    <style>
+      div p {
+        outline: 2px dashed blue;
+      div > p {
+        outline: 2px solid red;
+      }
+      div + p {
+        background-color: yellow;
+      }
+      div ~ p {
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>Esto es descendiente</p>
+      <section>
+        <p>No se selecciona con `div > p`, solo con `div p`</p>
+      </section>
+    </div>
+    <div class="container">
+      <p>Esto es hijo directo</p>
+    </div>
+    <div></div>
+    <p>Esto es hermano adyacente</p>
+    <div></div>
+    <p>Esto es hermano general</p>
+    <p>También es hermano</p>
+  </body>
+</html>
