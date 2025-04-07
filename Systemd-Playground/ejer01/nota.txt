@@ -1,0 +1,14 @@
+Let’s build the image with
+
+podman build --tag systemd .
+and then run the container with
+
+podman run --tty --rm --name systemd systemd
+Running the container fails with the following output.
+
+[...]
+Unit default.target not found.
+Falling back to rescue.target.
+Unit rescue.target not found.
+[cat nota.txt cat nota.txt cat nota.txt ] Failed to load rescue.target.
+Exiting PID 1...
