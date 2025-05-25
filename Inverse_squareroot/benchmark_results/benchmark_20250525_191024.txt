@@ -1,0 +1,366 @@
+Fast Inverse Square Root Benchmark Results
+==========================================
+Generated: dom 25 may 2025 19:10:24 CEST
+Host: archibald
+CPU: AMD Ryzen 7 PRO 4750U with Radeon Graphics
+
+========================================
+COMPILER: clang -O0
+BINARY: bench_clang_O0 (16152 bytes)
+TIMESTAMP: dom 25 may 2025 19:10:24 CEST
+========================================
+Fast Inverse Square Root Benchmark
+==================================
+Samples: 50, Iterations per sample: 1000000
+Range: [1.0, 2e+09]
+
+Algorithm            | Avg Time |  Max Abs Err |  Max Rel Err |  Avg Abs Err
+---------------------+----------+--------------+--------------+-------------
+Standard 1/sqrt(x)   |     3.91 ns |     0.00e+00 |     0.00e+00 |     0.00e+00
+Fast InvSqrt 1iter   |    17.91 ns |     1.69e-03 |     1.74e-03 |     1.27e-04
+Fast InvSqrt 2iter   |    22.48 ns |     4.35e-06 |     4.53e-06 |     2.85e-07
+
+Performance Analysis:
+Fast 1iter speedup: 0.22x
+Fast 2iter speedup: 0.17x
+2iter vs 1iter: 1.26x slower
+
+Accuracy Analysis:
+1iter precision loss: 1.74e-03 (0.1740%)
+2iter precision loss: 4.53e-06 (0.0005%)
+
+Edge Case Analysis:
+Input      | Standard     | Fast 1iter   | Fast 2iter  
+-----------+--------------+--------------+-------------
+1          |   1.00000000 |   0.99830717 |   0.99999565
+2          |   0.70710677 |   0.70693004 |   0.70710665
+4          |   0.50000000 |   0.49915358 |   0.49999782
+0          |   2.00000000 |   1.99661434 |   1.99999130
+16         |   0.25000000 |   0.24957679 |   0.24999891
+1024       |   0.03125000 |   0.03119710 |   0.03124986
+1048576    |   0.00097656 |   0.00097491 |   0.00097656
+
+========================================
+COMPILER: clang -O1
+BINARY: bench_clang_O1 (16104 bytes)
+TIMESTAMP: dom 25 may 2025 19:10:27 CEST
+========================================
+Fast Inverse Square Root Benchmark
+==================================
+Samples: 50, Iterations per sample: 1000000
+Range: [1.0, 2e+09]
+
+Algorithm            | Avg Time |  Max Abs Err |  Max Rel Err |  Avg Abs Err
+---------------------+----------+--------------+--------------+-------------
+Standard 1/sqrt(x)   |     1.03 ns |     0.00e+00 |     0.00e+00 |     0.00e+00
+Fast InvSqrt 1iter   |     0.25 ns |     0.00e+00 |    3.23e-319 |    3.23e-319
+Fast InvSqrt 2iter   |     0.25 ns |     0.00e+00 |    3.23e-319 |    3.23e-319
+
+Performance Analysis:
+Fast 1iter speedup: 4.16x
+Fast 2iter speedup: 4.17x
+2iter vs 1iter: 1.00x slower
+
+Accuracy Analysis:
+1iter precision loss: 5.27e+170 (539825.6903%)
+2iter precision loss: 9.53e-130 (0.0000%)
+
+Edge Case Analysis:
+Input      | Standard     | Fast 1iter   | Fast 2iter  
+-----------+--------------+--------------+-------------
+1          |   1.00000000 |   0.00000000 |   0.00000000
+2          |   0.70710677 |   0.00000000 |   0.00000000
+4          |   0.50000000 |   0.00000000 |   0.00000000
+0          |   2.00000000 |   0.00000000 |   0.00000000
+16         |   0.25000000 |   0.00000000 |   0.00000000
+1024       |   0.03125000 |   0.00000000 |   0.00000000
+1048576    |   0.00097656 |   0.00000000 |   0.00000000
+
+========================================
+COMPILER: clang -O2
+BINARY: bench_clang_O2 (16104 bytes)
+TIMESTAMP: dom 25 may 2025 19:10:27 CEST
+========================================
+Fast Inverse Square Root Benchmark
+==================================
+Samples: 50, Iterations per sample: 1000000
+Range: [1.0, 2e+09]
+
+Algorithm            | Avg Time |  Max Abs Err |  Max Rel Err |  Avg Abs Err
+---------------------+----------+--------------+--------------+-------------
+Standard 1/sqrt(x)   |     0.85 ns |     0.00e+00 |     0.00e+00 |     0.00e+00
+Fast InvSqrt 1iter   |     0.03 ns |     0.00e+00 |    3.23e-319 |    3.23e-319
+Fast InvSqrt 2iter   |     0.03 ns |     0.00e+00 |    3.23e-319 |    3.23e-319
+
+Performance Analysis:
+Fast 1iter speedup: 33.18x
+Fast 2iter speedup: 33.39x
+2iter vs 1iter: 0.99x slower
+
+Accuracy Analysis:
+1iter precision loss: 5.27e+170 (539825.6903%)
+2iter precision loss: 9.53e-130 (0.0000%)
+
+Edge Case Analysis:
+Input      | Standard     | Fast 1iter   | Fast 2iter  
+-----------+--------------+--------------+-------------
+1          |   1.00000000 |   0.00000000 |   0.00000000
+2          |   0.70710677 |   0.00000000 |   0.00000000
+4          |   0.50000000 |   0.00000000 |   0.00000000
+0          |   2.00000000 |   0.00000000 |   0.00000000
+16         |   0.25000000 |   0.00000000 |   0.00000000
+1024       |   0.03125000 |   0.00000000 |   0.00000000
+1048576    |   0.00097656 |   0.00000000 |   0.00000000
+
+========================================
+COMPILER: clang -O3
+BINARY: bench_clang_O3 (16104 bytes)
+TIMESTAMP: dom 25 may 2025 19:10:27 CEST
+========================================
+Fast Inverse Square Root Benchmark
+==================================
+Samples: 50, Iterations per sample: 1000000
+Range: [1.0, 2e+09]
+
+Algorithm            | Avg Time |  Max Abs Err |  Max Rel Err |  Avg Abs Err
+---------------------+----------+--------------+--------------+-------------
+Standard 1/sqrt(x)   |     1.31 ns |     0.00e+00 |     0.00e+00 |     0.00e+00
+Fast InvSqrt 1iter   |     0.03 ns |     0.00e+00 |    3.23e-319 |    3.23e-319
+Fast InvSqrt 2iter   |     0.03 ns |     0.00e+00 |    3.23e-319 |    3.23e-319
+
+Performance Analysis:
+Fast 1iter speedup: 51.53x
+Fast 2iter speedup: 51.12x
+2iter vs 1iter: 1.01x slower
+
+Accuracy Analysis:
+1iter precision loss: 5.27e+170 (539825.6903%)
+2iter precision loss: 9.53e-130 (0.0000%)
+
+Edge Case Analysis:
+Input      | Standard     | Fast 1iter   | Fast 2iter  
+-----------+--------------+--------------+-------------
+1          |   1.00000000 |   0.00000000 |   0.00000000
+2          |   0.70710677 |   0.00000000 |   0.00000000
+4          |   0.50000000 |   0.00000000 |   0.00000000
+0          |   2.00000000 |   0.00000000 |   0.00000000
+16         |   0.25000000 |   0.00000000 |   0.00000000
+1024       |   0.03125000 |   0.00000000 |   0.00000000
+1048576    |   0.00097656 |   0.00000000 |   0.00000000
+
+========================================
+COMPILER: clang -Ofast
+BINARY: bench_clang_Ofast (16056 bytes)
+TIMESTAMP: dom 25 may 2025 19:10:27 CEST
+========================================
+Fast Inverse Square Root Benchmark
+==================================
+Samples: 50, Iterations per sample: 1000000
+Range: [1.0, 2e+09]
+
+Algorithm            | Avg Time |  Max Abs Err |  Max Rel Err |  Avg Abs Err
+---------------------+----------+--------------+--------------+-------------
+Standard 1/sqrt(x)   |     0.41 ns |     0.00e+00 |     0.00e+00 |     0.00e+00
+Fast InvSqrt 1iter   |     0.03 ns |     0.00e+00 |    3.23e-319 |    3.23e-319
+Fast InvSqrt 2iter   |     0.03 ns |     0.00e+00 |    3.23e-319 |    3.23e-319
+
+Performance Analysis:
+Fast 1iter speedup: 16.11x
+Fast 2iter speedup: 15.98x
+2iter vs 1iter: 1.01x slower
+
+Accuracy Analysis:
+1iter precision loss: 5.27e+170 (539825.6903%)
+2iter precision loss: 9.53e-130 (0.0000%)
+
+Edge Case Analysis:
+Input      | Standard     | Fast 1iter   | Fast 2iter  
+-----------+--------------+--------------+-------------
+1          |   1.00000000 |   0.00000000 |   0.00000000
+2          |   0.70710677 |   0.00000000 |   0.00000000
+4          |   0.50000000 |   0.00000000 |   0.00000000
+0          |   2.00000000 |   0.00000000 |   0.00000000
+16         |   0.25000000 |   0.00000000 |   0.00000000
+1024       |   0.03125000 |   0.00000000 |   0.00000000
+1048576    |   0.00097656 |   0.00000000 |   0.00000000
+
+========================================
+COMPILER: gcc -O0
+BINARY: bench_gcc_O0 (16088 bytes)
+TIMESTAMP: dom 25 may 2025 19:10:28 CEST
+========================================
+Fast Inverse Square Root Benchmark
+==================================
+Samples: 50, Iterations per sample: 1000000
+Range: [1.0, 2e+09]
+
+Algorithm            | Avg Time |  Max Abs Err |  Max Rel Err |  Avg Abs Err
+---------------------+----------+--------------+--------------+-------------
+Standard 1/sqrt(x)   |     4.12 ns |     0.00e+00 |     0.00e+00 |     0.00e+00
+Fast InvSqrt 1iter   |    16.60 ns |     1.69e-03 |     1.74e-03 |     1.27e-04
+Fast InvSqrt 2iter   |    21.29 ns |     4.35e-06 |     4.53e-06 |     2.85e-07
+
+Performance Analysis:
+Fast 1iter speedup: 0.25x
+Fast 2iter speedup: 0.19x
+2iter vs 1iter: 1.28x slower
+
+Accuracy Analysis:
+1iter precision loss: 1.74e-03 (0.1740%)
+2iter precision loss: 4.53e-06 (0.0005%)
+
+Edge Case Analysis:
+Input      | Standard     | Fast 1iter   | Fast 2iter  
+-----------+--------------+--------------+-------------
+1          |   1.00000000 |   0.99830717 |   0.99999565
+2          |   0.70710677 |   0.70693004 |   0.70710665
+4          |   0.50000000 |   0.49915358 |   0.49999782
+0          |   2.00000000 |   1.99661434 |   1.99999130
+16         |   0.25000000 |   0.24957679 |   0.24999891
+1024       |   0.03125000 |   0.03119710 |   0.03124986
+1048576    |   0.00097656 |   0.00097491 |   0.00097656
+
+========================================
+COMPILER: gcc -O1
+BINARY: bench_gcc_O1 (16088 bytes)
+TIMESTAMP: dom 25 may 2025 19:10:30 CEST
+========================================
+Fast Inverse Square Root Benchmark
+==================================
+Samples: 50, Iterations per sample: 1000000
+Range: [1.0, 2e+09]
+
+Algorithm            | Avg Time |  Max Abs Err |  Max Rel Err |  Avg Abs Err
+---------------------+----------+--------------+--------------+-------------
+Standard 1/sqrt(x)   |     2.36 ns |     0.00e+00 |     0.00e+00 |     0.00e+00
+Fast InvSqrt 1iter   |     9.91 ns |     1.69e-03 |     1.74e-03 |     1.27e-04
+Fast InvSqrt 2iter   |    12.81 ns |     4.35e-06 |     4.53e-06 |     2.85e-07
+
+Performance Analysis:
+Fast 1iter speedup: 0.24x
+Fast 2iter speedup: 0.18x
+2iter vs 1iter: 1.29x slower
+
+Accuracy Analysis:
+1iter precision loss: 1.74e-03 (0.1740%)
+2iter precision loss: 4.53e-06 (0.0005%)
+
+Edge Case Analysis:
+Input      | Standard     | Fast 1iter   | Fast 2iter  
+-----------+--------------+--------------+-------------
+1          |   1.00000000 |  -0.99830717 |   0.99999565
+2          |   0.70710677 |  -0.70693004 |   0.70710665
+4          |   0.50000000 |  -0.49915358 |   0.49999782
+0          |   2.00000000 |  -1.99661434 |   1.99999130
+16         |   0.25000000 |  -0.24957679 |   0.24999891
+1024       |   0.03125000 |  -0.03119710 |   0.03124986
+1048576    |   0.00097656 |  -0.00097491 |   0.00097656
+
+========================================
+COMPILER: gcc -O2
+BINARY: bench_gcc_O2 (16088 bytes)
+TIMESTAMP: dom 25 may 2025 19:10:31 CEST
+========================================
+Fast Inverse Square Root Benchmark
+==================================
+Samples: 50, Iterations per sample: 1000000
+Range: [1.0, 2e+09]
+
+Algorithm            | Avg Time |  Max Abs Err |  Max Rel Err |  Avg Abs Err
+---------------------+----------+--------------+--------------+-------------
+Standard 1/sqrt(x)   |     2.31 ns |     0.00e+00 |     0.00e+00 |     0.00e+00
+Fast InvSqrt 1iter   |     9.95 ns |     1.69e-03 |     1.74e-03 |     1.27e-04
+Fast InvSqrt 2iter   |    12.81 ns |     4.35e-06 |     4.53e-06 |     2.85e-07
+
+Performance Analysis:
+Fast 1iter speedup: 0.23x
+Fast 2iter speedup: 0.18x
+2iter vs 1iter: 1.29x slower
+
+Accuracy Analysis:
+1iter precision loss: 1.74e-03 (0.1740%)
+2iter precision loss: 4.53e-06 (0.0005%)
+
+Edge Case Analysis:
+Input      | Standard     | Fast 1iter   | Fast 2iter  
+-----------+--------------+--------------+-------------
+1          |   1.00000000 |   0.99830717 |   0.99999565
+2          |   0.70710677 |   0.70693004 |   0.70710665
+4          |   0.50000000 |   0.49915358 |   0.49999782
+0          |   2.00000000 |   1.99661434 |   1.99999130
+16         |   0.25000000 |   0.24957679 |   0.24999891
+1024       |   0.03125000 |   0.03119710 |   0.03124986
+1048576    |   0.00097656 |   0.00097491 |   0.00097656
+
+========================================
+COMPILER: gcc -O3
+BINARY: bench_gcc_O3 (16088 bytes)
+TIMESTAMP: dom 25 may 2025 19:10:33 CEST
+========================================
+Fast Inverse Square Root Benchmark
+==================================
+Samples: 50, Iterations per sample: 1000000
+Range: [1.0, 2e+09]
+
+Algorithm            | Avg Time |  Max Abs Err |  Max Rel Err |  Avg Abs Err
+---------------------+----------+--------------+--------------+-------------
+Standard 1/sqrt(x)   |     2.50 ns |     0.00e+00 |     0.00e+00 |     0.00e+00
+Fast InvSqrt 1iter   |     9.91 ns |     1.69e-03 |     1.74e-03 |     1.27e-04
+Fast InvSqrt 2iter   |    12.83 ns |     4.35e-06 |     4.53e-06 |     2.85e-07
+
+Performance Analysis:
+Fast 1iter speedup: 0.25x
+Fast 2iter speedup: 0.19x
+2iter vs 1iter: 1.30x slower
+
+Accuracy Analysis:
+1iter precision loss: 1.74e-03 (0.1740%)
+2iter precision loss: 4.53e-06 (0.0005%)
+
+Edge Case Analysis:
+Input      | Standard     | Fast 1iter   | Fast 2iter  
+-----------+--------------+--------------+-------------
+1          |   1.00000000 |  -0.99830717 |   0.99999565
+2          |   0.70710677 |  -0.70693004 |   0.70710665
+4          |   0.50000000 |  -0.49915358 |   0.49999782
+0          |   2.00000000 |  -1.99661434 |   1.99999130
+16         |   0.25000000 |  -0.24957679 |   0.24999891
+1024       |   0.03125000 |  -0.03119710 |   0.03124986
+1048576    |   0.00097656 |  -0.00097491 |   0.00097656
+
+========================================
+COMPILER: gcc -Ofast
+BINARY: bench_gcc_Ofast (16096 bytes)
+TIMESTAMP: dom 25 may 2025 19:10:34 CEST
+========================================
+Fast Inverse Square Root Benchmark
+==================================
+Samples: 50, Iterations per sample: 1000000
+Range: [1.0, 2e+09]
+
+Algorithm            | Avg Time |  Max Abs Err |  Max Rel Err |  Avg Abs Err
+---------------------+----------+--------------+--------------+-------------
+Standard 1/sqrt(x)   |     1.46 ns |     0.00e+00 |     0.00e+00 |     0.00e+00
+Fast InvSqrt 1iter   |    10.02 ns |     1.69e-03 |     1.74e-03 |     1.27e-04
+Fast InvSqrt 2iter   |    12.81 ns |     4.35e-06 |     4.53e-06 |     2.85e-07
+
+Performance Analysis:
+Fast 1iter speedup: 0.15x
+Fast 2iter speedup: 0.11x
+2iter vs 1iter: 1.28x slower
+
+Accuracy Analysis:
+1iter precision loss: 1.74e-03 (0.1740%)
+2iter precision loss: 4.53e-06 (0.0005%)
+
+Edge Case Analysis:
+Input      | Standard     | Fast 1iter   | Fast 2iter  
+-----------+--------------+--------------+-------------
+1          |   1.00000000 |   0.99830717 |   0.99999565
+2          |   0.70710677 |   0.70693004 |   0.70710665
+4          |   0.50000000 |   0.49915358 |   0.49999782
+0          |   2.00000000 |   1.99661434 |   1.99999130
+16         |   0.25000000 |   0.24957679 |   0.24999891
+1024       |   0.03125000 |   0.03119710 |   0.03124986
+1048576    |   0.00097656 |   0.00097491 |   0.00097656
+
